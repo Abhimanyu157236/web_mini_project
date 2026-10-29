@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Result Management System</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <h1>Student Result Management System</h1>
+            <p>Web Technology Mini Project</p>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <!-- Dashboard -->
+        <section class="dashboard">
+
+            <div class="stat-card">
+                <h3>Total Students</h3>
+                <p id="totalStudents">0</p>
+            </div>
+
+            <div class="stat-card">
+                <h3>Passed</h3>
+                <p id="passedStudents">0</p>
+            </div>
+
+            <div class="stat-card">
+                <h3>Failed</h3>
+                <p id="failedStudents">0</p>
+            </div>
+
+        </section>
+
+
+        <!-- Add Student -->
+        <section class="card">
+
+            <div class="section-title">
+                <h2>Add Student Result</h2>
+                <span>Enter student details and marks</span>
+            </div>
+
+            <form id="studentForm">
+
+                <div class="form-grid">
+
+                    <div class="input-group">
+                        <label>Student ID</label>
+                        <input
+                            type="number"
+                            id="studentId"
+                            placeholder="Enter Student ID"
+                            required
+                        >
+                    </div>
+
+                    <div class="input-group">
+                        <label>Student Name</label>
+                        <input
+                            type="text"
+                            id="studentName"
+                            placeholder="Enter Student Name"
+                            required
+                        >
+                    </div>
+
+                    <div class="input-group">
+                        <label>Course</label>
+
+                        <select id="course" required>
+                            <option value="">Select Course</option>
+                            <option value="MCA">MCA</option>
+                            <option value="BCA">BCA</option>
+                            <option value="B.Tech">B.Tech</option>
+                        </select>
+
+                    </div>
+
+                    <div class="input-group">
+                        <label>Semester</label>
+
+                        <select id="semester" required>
+                            <option value="">Select Semester</option>
+                            <option value="1st">1st</option>
+                            <option value="2nd">2nd</option>
+                            <option value="3rd">3rd</option>
+                            <option value="4th">4th</option>
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <h3 class="marks-heading">Subject Marks</h3>
+
+                <div class="marks-grid">
+
+                    <div class="subject">
+                        <label>DBMS</label>
+                        <input
+                            type="number"
+                            id="dbms"
+                            min="0"
+                            max="100"
+                            placeholder="0-100"
+                            required
+                        >
+                    </div>
+
+                    <div class="subject">
+                        <label>PL/SQL</label>
+                        <input
+                            type="number"
+                            id="plsql"
+                            min="0"
+                            max="100"
+                            placeholder="0-100"
+                            required
+                        >
+                    </div>
+
+                    <div class="subject">
+                        <label>Python</label>
+                        <input
+                            type="number"
+                            id="python"
+                            min="0"
+                            max="100"
+                            placeholder="0-100"
+                            required
+                        >
+                    </div>
+
+                    <div class="subject">
+                        <label>Java</label>
+                        <input
+                            type="number"
+                            id="java"
+                            min="0"
+                            max="100"
+                            placeholder="0-100"
+                            required
+                        >
+                    </div>
+
+                    <div class="subject">
+                        <label>Web Technology</label>
+                        <input
+                            type="number"
+                            id="web"
+                            min="0"
+                            max="100"
+                            placeholder="0-100"
+                            required
+                        >
+                    </div>
+
+                </div>
+
+                <button type="submit" class="primary-btn">
+                    Calculate & Add Result
+                </button>
+
+            </form>
+
+        </section>
+
+
+        <!-- Search -->
+        <section class="card">
+
+            <div class="section-title">
+                <h2>Student Records</h2>
+
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search by name or ID..."
+                >
+            </div>
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Course</th>
+                            <th>Semester</th>
+                            <th>Total</th>
+                            <th>Percentage</th>
+                            <th>Grade</th>
+                            <th>Result</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="studentTableBody"></tbody>
+
+                </table>
+
+                <div id="emptyMessage" class="empty-message">
+                    No student records available.
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- Result Modal -->
+    <div id="resultModal" class="modal">
+
+        <div class="modal-content">
+
+            <span class="close" onclick="closeModal()">&times;</span>
+
+            <h2>Student Result</h2>
+
+            <div id="resultDetails"></div>
+
+        </div>
+
+    </div>
+
+
+    <footer>
+        <p>Student Result Management System © 2026</p>
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
